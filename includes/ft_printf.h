@@ -6,7 +6,7 @@
 /*   By: fnichola <fnichola@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 15:21:27 by fnichola          #+#    #+#             */
-/*   Updated: 2021/10/05 14:45:09 by fnichola         ###   ########.fr       */
+/*   Updated: 2021/10/05 15:44:41 by fnichola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 # include <stdarg.h>
 # include "../libft/libft.h"
 
-#define TRUE 1
-#define FALSE 0
+# define TRUE 1
+# define FALSE 0
 
-int ft_printf(const char *format, ...);
-int ft_print_unum(unsigned long num, char *digits, int truncate);
-int ft_print_num(int nbr);
+int	ft_printf(const char *format, ...);
+int	ft_print_unum(unsigned long num, char *digits, int truncate);
+int	ft_print_num(int nbr);
 
 #endif
