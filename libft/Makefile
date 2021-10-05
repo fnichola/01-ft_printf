@@ -6,14 +6,12 @@
 #    By: fnichola <fnichola@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/07 21:47:42 by fnichola          #+#    #+#              #
-#    Updated: 2021/09/27 21:07:03 by fnichola         ###   ########.fr        #
+#    Updated: 2021/10/05 16:53:16 by fnichola         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = libft.a
-
-TEST = libft-tests.out
 
 CC = gcc
 
@@ -68,7 +66,6 @@ BONUS_SRCS = ft_lstnew.c \
 
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
-TEST_SRC = libft_TESTS.c
 
 all: $(NAME)
 
@@ -81,22 +78,17 @@ $(NAME): $(OBJS)
 bonus: $(OBJS) $(BONUS_OBJS)
 	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
-test: all bonus
-	$(CC) $(CFLAGS) $(TEST_SRC) $(NAME) -g -o $(TEST)
-
 so: $(OBJS) $(BONUS_OBJS)
 	gcc -shared -o libft.so $(OBJS) $(BONUS_OBJS)
 
 clean:
-	$(RM) -f $(OBJS)
-	$(RM) -f $(BONUS_OBJS)
-	$(RM) -f libft_TESTS.o
-	$(RM) -f libft.so
+	$(RM) $(OBJS)
+	$(RM) $(BONUS_OBJS)
+	$(RM) libft.so
 
 fclean: clean
-	$(RM) -f $(NAME)
-	$(RM) -f $(TEST)
+	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus test so
+.PHONY: all clean fclean re bonus so

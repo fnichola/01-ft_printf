@@ -6,7 +6,7 @@
 #    By: fnichola <fnichola@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/24 15:37:46 by fnichola          #+#    #+#              #
-#    Updated: 2021/09/28 17:10:43 by fnichola         ###   ########.fr        #
+#    Updated: 2021/10/05 16:52:09 by fnichola         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@
 NAME = libftprintf.a
 
 LIBFT_DIR = libft
+LIBFT_LIB = $(LIBFT_DIR)/libft.a
 
 CC = gcc
 
@@ -30,20 +31,25 @@ all: $(NAME)
 %.o: %.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
-libft:
-	$(MAKE) -C $(LIBFT_DIR) bonus
+$(LIBFT_LIB): recursive
+	$(MAKE) -C $(LIBFT_DIR)
 
-$(NAME): $(OBJS) libft
-	mv $(LIBFT_DIR)/libft.a $(NAME)
+recursive:
+	@true
+
+$(NAME): $(OBJS) $(LIBFT_LIB)
+	cp $(LIBFT_LIB) $(NAME)
 	ar rs $(NAME) $(OBJS)
 
 clean:
-	$(RM) -f $(OBJS)
+	$(RM) $(OBJS)
 	$(MAKE) -C $(LIBFT_DIR) clean
 
-fclean: clean
-	$(RM) -f $(NAME)
+fclean:
+	$(RM) $(OBJS)
+	$(RM) $(NAME)
+	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus test so libft
+.PHONY: all clean fclean re bonus test so
