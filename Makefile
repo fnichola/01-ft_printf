@@ -6,7 +6,7 @@
 #    By: fnichola <fnichola@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/24 15:37:46 by fnichola          #+#    #+#              #
-#    Updated: 2021/10/05 16:52:09 by fnichola         ###   ########.fr        #
+#    Updated: 2021/10/05 17:05:19 by fnichola         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,10 +31,10 @@ all: $(NAME)
 %.o: %.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
-$(LIBFT_LIB): recursive
+$(LIBFT_LIB): force_look
 	$(MAKE) -C $(LIBFT_DIR)
 
-recursive:
+force_look:
 	@true
 
 $(NAME): $(OBJS) $(LIBFT_LIB)
@@ -52,4 +52,4 @@ fclean:
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus test so
+.PHONY: all clean fclean re bonus so force_look
