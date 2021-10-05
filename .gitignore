@@ -6,6 +6,8 @@ test*
 .DS_Store
 pft/
 printfTester/
+ft_printf-testing-tools/
+ft_printf_tester/
 
 # Prerequisites
 *.d

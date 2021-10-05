@@ -6,7 +6,7 @@
 /*   By: fnichola <fnichola@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 15:55:27 by fnichola          #+#    #+#             */
-/*   Updated: 2021/09/28 17:29:51 by fnichola         ###   ########.fr       */
+/*   Updated: 2021/10/05 15:40:09 by fnichola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 /**
  * Print an unsigned number using provided digits (e.g. "0123456789").
+ * If truncate is true the number will be truncated to an unsigned int.
  * RETURN:
  * Number of characters printed.
  */

@@ -6,7 +6,7 @@
 /*   By: fnichola <fnichola@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 15:21:27 by fnichola          #+#    #+#             */
-/*   Updated: 2021/09/28 17:11:03 by fnichola         ###   ########.fr       */
+/*   Updated: 2021/10/05 14:45:09 by fnichola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdarg.h>
-# include "libft.h"
+# include "../libft/libft.h"
 
 #define TRUE 1
 #define FALSE 0
