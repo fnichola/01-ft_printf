@@ -6,12 +6,14 @@
 #    By: fnichola <fnichola@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/07 21:47:42 by fnichola          #+#    #+#              #
-#    Updated: 2021/10/05 16:53:16 by fnichola         ###   ########.fr        #
+#    Updated: 2021/10/06 10:50:19 by fnichola         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = libft.a
+
+HEADER = libft.h
 
 CC = gcc
 
@@ -69,7 +71,7 @@ BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 all: $(NAME)
 
-%.o: %.c
+%.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 $(NAME): $(OBJS)

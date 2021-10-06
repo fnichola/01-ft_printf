@@ -6,12 +6,14 @@
 #    By: fnichola <fnichola@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/24 15:37:46 by fnichola          #+#    #+#              #
-#    Updated: 2021/10/05 17:05:19 by fnichola         ###   ########.fr        #
+#    Updated: 2021/10/06 10:48:50 by fnichola         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = libftprintf.a
+
+HEADER = includes/ft_printf.h
 
 LIBFT_DIR = libft
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
@@ -28,18 +30,17 @@ OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-%.o: %.c
+%.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -o $@ -c $<
-
-$(LIBFT_LIB): force_look
-	$(MAKE) -C $(LIBFT_DIR)
-
-force_look:
-	@true
 
 $(NAME): $(OBJS) $(LIBFT_LIB)
 	cp $(LIBFT_LIB) $(NAME)
 	ar rs $(NAME) $(OBJS)
+
+$(LIBFT_LIB): force_look
+	$(MAKE) -C $(LIBFT_DIR)
+
+force_look: ;
 
 clean:
 	$(RM) $(OBJS)
