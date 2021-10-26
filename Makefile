@@ -6,7 +6,7 @@
 #    By: fnichola <fnichola@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/24 15:37:46 by fnichola          #+#    #+#              #
-#    Updated: 2021/10/06 10:48:50 by fnichola         ###   ########.fr        #
+#    Updated: 2021/10/22 18:05:09 by fnichola         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,20 +37,18 @@ $(NAME): $(OBJS) $(LIBFT_LIB)
 	cp $(LIBFT_LIB) $(NAME)
 	ar rs $(NAME) $(OBJS)
 
-$(LIBFT_LIB): force_look
+$(LIBFT_LIB): 
 	$(MAKE) -C $(LIBFT_DIR)
-
-force_look: ;
 
 clean:
 	$(RM) $(OBJS)
-	$(MAKE) -C $(LIBFT_DIR) clean
+	$(MAKE) clean -C $(LIBFT_DIR) 
 
 fclean:
 	$(RM) $(OBJS)
 	$(RM) $(NAME)
-	$(MAKE) -C $(LIBFT_DIR) fclean
+	$(RM) $(LIBFT_LIB)
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus so force_look
+.PHONY: all clean fclean re bonus  

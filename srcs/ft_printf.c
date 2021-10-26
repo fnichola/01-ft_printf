@@ -6,7 +6,7 @@
 /*   By: fnichola <fnichola@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 15:20:01 by fnichola          #+#    #+#             */
-/*   Updated: 2021/10/05 16:29:51 by fnichola         ###   ########.fr       */
+/*   Updated: 2021/10/26 16:14:08 by fnichola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	ft_print_str(char *s)
 	return (ret);
 }
 
-int	eval_format(char conversion, va_list *ap)
+static int	eval_format(char conversion, va_list *ap)
 {
 	int		ret;
 
@@ -42,16 +42,16 @@ int	eval_format(char conversion, va_list *ap)
 	if (conversion == 'p')
 	{
 		ret += write(1, "0x", 2);
-		ret += ft_print_unum(va_arg(*ap, unsigned long), "0123456789abcdef", 0);
+		ret += ft_print_unum(va_arg(*ap, unsigned long), HEX_LOWER, FALSE);
 	}
 	if (conversion == 'd' || conversion == 'i')
 		ret += ft_print_num(va_arg(*ap, int));
 	if (conversion == 'u')
-		ret += ft_print_unum(va_arg(*ap, unsigned long), "0123456789", 1);
+		ret += ft_print_unum(va_arg(*ap, unsigned long), DEC_DIGITS, TRUE);
 	if (conversion == 'x')
-		ret += ft_print_unum(va_arg(*ap, unsigned long), "0123456789abcdef", 1);
+		ret += ft_print_unum(va_arg(*ap, unsigned long), HEX_LOWER, TRUE);
 	if (conversion == 'X')
-		ret += ft_print_unum(va_arg(*ap, unsigned long), "0123456789ABCDEF", 1);
+		ret += ft_print_unum(va_arg(*ap, unsigned long), HEX_UPPER, TRUE);
 	if (conversion == '%')
 		ret += write(1, "%", 1);
 	return (ret);

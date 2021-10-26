@@ -6,7 +6,7 @@
 /*   By: fnichola <fnichola@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 17:02:47 by fnichola          #+#    #+#             */
-/*   Updated: 2021/10/05 15:40:50 by fnichola         ###   ########.fr       */
+/*   Updated: 2021/10/26 16:15:32 by fnichola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	write_num(long num)
 }
 
 /**
- * Print a signed int.
+ * Print a signed int to std out.
  * RETURN:
  * Number of characters printed.
  */

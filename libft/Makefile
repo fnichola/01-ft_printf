@@ -6,7 +6,7 @@
 #    By: fnichola <fnichola@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/07 21:47:42 by fnichola          #+#    #+#              #
-#    Updated: 2021/10/06 10:50:19 by fnichola         ###   ########.fr        #
+#    Updated: 2021/10/18 20:22:53 by fnichola         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,10 @@ BONUS_SRCS = ft_lstnew.c \
 
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
+ifdef WITH_BONUS
+OBJS += $(BONUS_OBJS)
+endif
+
 
 all: $(NAME)
 
@@ -77,20 +81,16 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rcs $@ $^
 
-bonus: $(OBJS) $(BONUS_OBJS)
-	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
-
-so: $(OBJS) $(BONUS_OBJS)
-	gcc -shared -o libft.so $(OBJS) $(BONUS_OBJS)
+bonus:
+	$(MAKE) WITH_BONUS=1
 
 clean:
 	$(RM) $(OBJS)
 	$(RM) $(BONUS_OBJS)
-	$(RM) libft.so
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus so
+.PHONY: all clean fclean re bonus

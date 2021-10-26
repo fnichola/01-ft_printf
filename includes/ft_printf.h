@@ -6,7 +6,7 @@
 /*   By: fnichola <fnichola@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 15:21:27 by fnichola          #+#    #+#             */
-/*   Updated: 2021/10/05 15:44:41 by fnichola         ###   ########.fr       */
+/*   Updated: 2021/10/26 16:05:25 by fnichola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <stdarg.h>
 # include "../libft/libft.h"
 
+# define DEC_DIGITS "0123456789"
+# define HEX_UPPER "0123456789ABCDEF"
+# define HEX_LOWER "0123456789abcdef"
 # define TRUE 1
 # define FALSE 0
 
