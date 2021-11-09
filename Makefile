@@ -6,7 +6,7 @@
 #    By: fnichola <fnichola@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/24 15:37:46 by fnichola          #+#    #+#              #
-#    Updated: 2021/11/09 16:00:22 by fnichola         ###   ########.fr        #
+#    Updated: 2021/11/09 16:24:54 by fnichola         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,10 +44,9 @@ clean:
 	$(RM) $(OBJS)
 	$(MAKE) clean -C $(LIBFT_DIR) 
 
-fclean:
-	$(RM) $(OBJS)
+fclean: clean
 	$(RM) $(NAME)
-	$(MAKE) fclean -C $(LIBFT_LIB)
+	$(RM) $(LIBFT_LIB)
 
 re: fclean all
 
